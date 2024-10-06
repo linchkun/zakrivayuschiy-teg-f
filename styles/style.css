@@ -340,7 +340,7 @@
 }
 
 .card-img-contrast-sepia {
-  filter: contrast(300%) sepia(30%);
+  filter: contrast(300%) sepia(30%) saturate(20%);
 }
 
 .card-img-blur {
