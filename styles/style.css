@@ -81,7 +81,7 @@
   background-color: transparent;
   border: none;
   text-transform: uppercase;
-  transition: opacity 0.3s;
+  transition: opacity 0.3s ease;;
   cursor: pointer;
 }
 
@@ -98,7 +98,6 @@
 
 .theme-menu__button:hover {
   opacity: 0.6;
-  transition: 0.3s ease;
 }
 
 .theme-menu__button:focus {
@@ -146,39 +145,45 @@
 
 .article__card-box {
   position: relative;
+  border-top: 2px solid var(--accent-color);
 }
 
 .card-label {
   position: absolute;
   font-size: 14px;
   line-height: 14px;
-  text-shadow: var(--text-shadow);
+  text-shadow: -1px 0 var(--text-shadow), 
+  0 1px var(--text-shadow), 
+  1px 0 var(--text-shadow), 
+  0 -1px var(--text-shadow);
   font-family: var(--accent-font-family);
-  top: 27px;
-  right: 27px;
+  top: 25px;
+  right: 25px;
   mix-blend-mode: hard-light;
   opacity: 0.5;
+  z-index: 1;
 }
 
 @supports (
-  (-webkit-text-stroke: 1px var(--text-shadow)) or
-    (text-stroke: 1px var(--text-shadow))
+  (-webkit-text-stroke: 1px #fff) or
+    (text-stroke: 1px #fff)
 ) {
   .card-label {
     -webkit-text-stroke: 1px var(--text-shadow);
+    text-stroke: 1px var(--text-shadow);
+    text-shadow: none;
   }
 }
 
 .card-img {
   display: block;
-  border-top: 2px solid var(--accent-color);
-  border-bottom: 2px solid var(--accent-color);
   object-fit: cover;
   object-position: center;
   inline-size: 100%;
 }
 
 .article__card-textbox {
+  border-top: 2px solid var(--accent-color);
   display: grid;
   gap: 27px;
   padding: 25px;
@@ -208,6 +213,7 @@
   padding: 0;
   background-color: transparent;
   height: 38px;
+  transition: border 0.3s ease;
 }
 
 .card__icon-button:focus {
@@ -216,13 +222,13 @@
 
 .card__icon-button:focus-visible {
   border: 2px solid var(--accent-color);
-  transition: border 0.3s ease;
 }
 
 .decor-button {
   position: relative;
   cursor: pointer;
   background-color: transparent;
+  transition: 0.3s ease;
 }
 
 .decor-button:focus {
@@ -231,12 +237,10 @@
 
 .decor-button:focus-visible {
   box-shadow: 2px 2px 0 0 var(--accent-color);
-  transition: 0.3s ease;
 }
 
 .decor-button:hover::after {
   transform: scaleX(1);
-  transition: 0.5s ease-in-out;
 }
 
 .decor-button::after {
@@ -364,5 +368,10 @@
     flex-shrink: 0;
     width: 28px;
     height: 28px;
+  }
+
+  .card-label {
+    top: 24px;
+    right: 9px;
   }
 }
