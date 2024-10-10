@@ -286,10 +286,11 @@
 .dialog-popup[open] {
   display: grid;
   grid-template-columns: min-content;
-  padding: 30px;
   background-color: var(--background-color);
   color: var(--accent-color);
   gap: 30px;
+  padding: 30px;
+  min-inline-size: 353px;
 }
 
 .dialog-popup::backdrop {
@@ -322,7 +323,7 @@
   text-transform: uppercase;
   font-size: 14px;
   border: 2px solid var(--accent-color);
-  padding: 12px 132px;
+  padding: 12px 128px;
 }
 
 /** фильтры **/
@@ -374,4 +375,14 @@
     top: 24px;
     right: 9px;
   }
+
+  .dialog-popup[open] {
+    padding: 30px 40px;
+    min-inline-size: 341px;
+  }
+
+  .close-button {
+    padding: 12px 112px;
+  }
+  
 }
